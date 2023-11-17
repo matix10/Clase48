@@ -1,9 +1,7 @@
 FROM jitesoft/node-yarn:latest as builder3
 
-RUN mkdir /acceleration-calc
-COPY /acceleration-calc /acceleration-calc
+COPY . .
 
-WORKDIR /acceleration-calc
 EXPOSE 3000
 ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN yarn install \
@@ -21,8 +19,7 @@ RUN rm -rf node_modules && \
   --production=true
 
 FROM jitesoft/node-yarn:latest as img3
-COPY --from=builder3 /acceleration-calc /acceleration-calc
-WORKDIR /acceleration-calc
+COPY --from=builder3 . .
 ENV HOST 0.0.0.0
 
 CMD [ "yarn", "start" ]

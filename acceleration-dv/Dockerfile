@@ -1,7 +1,6 @@
 FROM jitesoft/node-yarn:latest as builder2
 
-RUN mkdir /acceleration-dv
-COPY /acceleration-dv /acceleration-dv
+COPY . .
 
 WORKDIR /acceleration-dv
 EXPOSE 3001
@@ -21,8 +20,7 @@ RUN rm -rf node_modules && \
   --production=true
 
 FROM jitesoft/node-yarn:latest as img2
-COPY --from=builder2 /acceleration-dv /acceleration-dv
-WORKDIR /acceleration-dv
+COPY --from=builder2 . .
 ENV HOST 0.0.0.0
 
 CMD [ "yarn", "start" ]
