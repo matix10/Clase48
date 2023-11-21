@@ -3,8 +3,8 @@ import * as request from 'request-promise-native';
 import * as url from 'url';
 
 const port = 3000;
-const dvUrl = process.env.DV_URL!;
-const aUrl = process.env.A_URL!;
+const dvUrl = "127.0.0.1:3001/";
+const aUrl = "127.0.0.1:3002/";
 
 const calc = async (query: any) => {
   const dvResult = await request.get(`${dvUrl}?vf=${query.vf}&vi=${query.vi}`);

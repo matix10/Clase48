@@ -1,18 +1,18 @@
-# Default values for acceleretion-a.
+# Default values for acceleration-dv.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: matiasolivar/acceleration-a
+  repository: matiasolivar/acceleration-dv
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v1.0"
 
 imagePullSecrets: []
-nameOverride: "acceleration-a"
-fullnameOverride: "acceleration-a"
+nameOverride: "acceleration-dv"
+fullnameOverride: "acceleration-dv"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -31,6 +31,7 @@ podLabels: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
+initialDelaySecods: 60
 securityContext: {}
   # capabilities:
   #   drop:
@@ -41,7 +42,7 @@ securityContext: {}
 
 service:
   type: NodePort
-  port: 3002
+  port: 3001
 
 ingress:
   enabled: false
@@ -112,7 +113,5 @@ PersistentVolumeClaim:
   
 service:
   type: NodePort
-  port: 3002
-  targetPort: 3002
-
-initialDelaySecods: 60
+  port: 3001
+  targetPort: 3001
