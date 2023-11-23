@@ -5,13 +5,11 @@ pipeline{
                     image 'matiasolivar/acceleration-dv:v1.0'
     }
         }
-    stages{
-        stage ('checkout scm'){
-
-        }
+   
 
         stage ('Build'){
             steps{
+               checkout scm
                sh 'echo "pipeline finalizado"';
             }
 
