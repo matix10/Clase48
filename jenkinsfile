@@ -1,0 +1,20 @@
+pipeline{
+    agent Docker{
+        image matiasolivar/acceleration-dv:v1.0
+    }
+    stages{
+        stage ('checkout scm'){
+
+        }
+
+        stage ('Build'){
+               
+
+        }
+
+        
+    }
+
+
+
+}
