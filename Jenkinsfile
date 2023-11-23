@@ -1,3 +1,4 @@
+
 pipeline{
     agent 
         {   docker {
@@ -10,7 +11,9 @@ pipeline{
         }
 
         stage ('Build'){
+            steps{
                sh 'echo "pipeline finalizado"';
+            }
 
         }
 
